@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <style>
+    .box{
+        text-align: center;
+    }
+    .inner-box{
+        width: 400px;
+        margin: auto;
+        text-align: center;
+        border: 1px solid #000;
+        padding: 10px;
+    }
+    input{
+        height: 30px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #000;
+        box-sizing: border-box;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    img{
+        width: 300px;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    button{
+        border: 1px solid #ccc;
+        width: 200px;
+        height: 40px;
+        font-size: 21px;
+        color: #000;
+        background: #ccc;
+        display: block;
+        margin: auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Find any User Profile</h1>
+        <div class="inner-box">
+            <h3 id="search-txt"></h3>
+            <input type="text" id="search" placeholder="Enter Name">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" alt="" id="img" style="width:200px;height:200px;">
+            <button id="btn">Search</button>
+        </div>
+    </div>
+    <script>
+   $(document).ready(function(){
+    $("#search-txt").text("Your Search Result is");
+
+      $("#search").keydown(function(){
+        var inp =  $("#search").val();
+        $("#search-txt").text("Your Search Result is" + " " +inp);
+       console.log(inp);
+       $("#img").attr("src",`https://joeschmoe.io/api/v1/${inp}`);
+
+      })
+   })
+
+    </script>
+</body>
+</html>
